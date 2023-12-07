@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500;600&display=swap" rel="stylesheet">
+    <title>Todo</title>
+</head>
+<body>
+    <h1>The TO-DO List</h1>
+
+    <div class="gridContainer">
+    <div class="date"><p class="dd"><%= Tdate %></p></div>
+
+    <div class="white-bg">
+        <div class="list">
+            <% if (item.length > 0) { %>
+                <ol>
+                    <% item.forEach((value, index) => { %>
+                        <li class="list-item">
+                            <input type="checkbox" id="checkbox<%= index %>" class="task-checkbox">
+                            <label class="task-val" for="checkbox<%= index %>"><%= value %></label>
+                            <form class="delete-btn" action="/delete/<%= index %>" method="get">
+                                <button type="submit">Delete</button>
+                            </form>
+                        </li>
+                    <% }); %>
+                </ol>
+            <% } else { %>
+                <p>No tasks yet.</p>
+            <% } %>
+        </div>
+
+        <form action="/submit" method="POST">
+             <input type="text" name="itemName" class="itemName">
+            <!-- <input type="file" name="itemDetail" class="itemDetail">  -->
+            <button type="submit" class="add-btn"><img class="plus" src="/images/plus.png" alt=""></button>
+        </form>
+    </div>
+    </div>
+</body>
+</html>
