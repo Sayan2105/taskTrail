@@ -32,10 +32,6 @@ app.post("/submit", (req, res) => {
     res.redirect("/"); // Redirect back to the main page
 });
 
-// app.get("/delete/:index", (req,res) =>{
-    
-// })
-
 //Route to handle the delete btn
 app.get("/delete/:index", (req,res) =>{
     const index = req.params.index;
