@@ -16,7 +16,6 @@ const todDate = date.getDate() + " " + months[date.getMonth()] + " " + date.getF
 // Task list
 const todoList = []; // Initialize the array to store tasks
 
-
 // Route to render the EJS template
 app.get("/", (req, res) => {
     res.render("index.ejs", {
